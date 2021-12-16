@@ -1,8 +1,9 @@
 #!/bin/bash
-ENV=$1
-PRJT_NAME=$2
-PORT_NUM=$3
-STATUS=$4
+ACTION=$1
+ENV=$2
+PRJT_NAME=$3
+PORT_NUM=$4
+
 DEPLOY_DIR_PATH=/home/ubuntu/deploy
 CURRENT_DEPLOY_DIR_PATH=${DEPLOY_DIR_PATH}/${PRJT_NAME}/current
 
@@ -13,11 +14,11 @@ start() {
 }
 
 stop() {
-  STOP_PROCESS=$(ps -ef | grep $ENV | grep $PORT_NUM | $grep $PRJT_NAME | awk '{print $2}' )
+  STOP_PROCESS=$(ps -ef | grep $ENV | grep $PORT_NUM | grep $PRJT_NAME | awk '{print $2}' )
   kill -9 "$STOP_PROCESS"
 }
 
-if [ "$STATUS" == "start" ]; then
+if [ "$ACTION" == "start" ]; then
   start
 else
   stop
