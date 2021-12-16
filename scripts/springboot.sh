@@ -8,13 +8,15 @@ DEPLOY_DIR_PATH=/home/ubuntu/deploy
 CURRENT_DEPLOY_DIR_PATH=${DEPLOY_DIR_PATH}/${PRJT_NAME}/current
 
 start() {
-  echo ">> server start"
+  echo ">> start method"
   JAR_FILE=$(basename ${CURRENT_DEPLOY_DIR_PATH}/*.jar)
+  echo ">> jar-file-name : $JAR_FILE"
   sudo nohup java -jar "${CURRENT_DEPLOY_DIR_PATH}/${JAR_FILE}" \
         -Dspring.profiles.active=$ENV -Dsever.port=$PORT_NUM &
 }
 
 stop() {
+  echo ">> stop method"
   STOP_PROCESS=$(ps -ef | grep $ENV | grep $PORT_NUM | grep $PRJT_NAME | awk '{print $2}' )
   sudo kill -9 "$STOP_PROCESS"
 }
