@@ -9,7 +9,8 @@ CURRENT_DEPLOY_DIR_PATH=${DEPLOY_DIR_PATH}/${PRJT_NAME}/current
 
 start() {
   echo ">> server start"
-  nohup java -jar ${CURRENT_DEPLOY_DIR_PATH}/*.jar \
+  JAR_FILE=$(basename ${CURRENT_DEPLOY_DIR_PATH}/*.jar)
+  nohup java -jar "${CURRENT_DEPLOY_DIR_PATH}/${JAR_FILE}" \
         -Dspring.profiles.active=$ENV -Dsever.port=$PORT_NUM &
 }
 
