@@ -1,8 +1,11 @@
 #!/bin/bash
 
 PROJECT_NAME=$1
+PORT_NUM=$2
 
 DEPLOY_DIR_PATH=/home/ubuntu/deploy
+LOG_DIR_PATH=/home/ubuntu/logs
+PRJT_LOG_DIR_PATH=${LOG_DIR_PATH}/${PROJECT_NAME}_${PORT_NUM}
 CURRENT_DEPLOY_DIR_PATH=${DEPLOY_DIR_PATH}/${PROJECT_NAME}/current
 
 TODAY=$(date "+%Y%m%d%H%M%S")
@@ -33,3 +36,11 @@ if [ -d "${CURRENT_DEPLOY_DIR_PATH}" ]; then
   sudo rm -f ${CURRENT_DEPLOY_DIR_PATH}
 fi
 sudo ln -s ${DEPLOY_DIR_PATH}/"${PROJECT_NAME}"/"${CHANGED_JAR_FILE_NAME}" "${CURRENT_DEPLOY_DIR_PATH}"
+
+echo">>make log directory"
+if [ -d ${PRJT_LOG_DIR_PATH} ]; then
+  echo "project log directory is already exist"
+else
+  echo "log_path : ${PRJT_LOG_DIR_PATH}"
+  mkdir "${PRJT_LOG_DIR_PATH}"
+fi
