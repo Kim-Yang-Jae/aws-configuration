@@ -26,4 +26,6 @@ sudo mv ./build/libs/*.jar ${DEPLOY_DIR_PATH}/${PROJECT_NAME}/"${CHANGED_JAR_FIL
 
 
 echo ">>make symbolic link"
+echo "target-path : ${DEPLOY_DIR_PATH}/${PROJECT_NAME}/${CHANGED_JAR_FILE_NAME}"
+echo "link-path : ${CURRENT_DEPLOY_DIR_PATH}"
 sudo ln -s ${DEPLOY_DIR_PATH}/"${PROJECT_NAME}"/"${CHANGED_JAR_FILE_NAME}" "${CURRENT_DEPLOY_DIR_PATH}"
