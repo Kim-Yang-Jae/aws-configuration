@@ -42,5 +42,5 @@ if [ -d ${PRJT_LOG_DIR_PATH} ]; then
   echo "project log directory is already exist"
 else
   echo "log_path : ${PRJT_LOG_DIR_PATH}"
-  mkdir "${PRJT_LOG_DIR_PATH}"
+  sudo mkdir "${PRJT_LOG_DIR_PATH}"
 fi
