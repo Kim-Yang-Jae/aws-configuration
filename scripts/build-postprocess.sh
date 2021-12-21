@@ -38,9 +38,14 @@ fi
 sudo ln -s ${DEPLOY_DIR_PATH}/"${PROJECT_NAME}"/"${CHANGED_JAR_FILE_NAME}" "${CURRENT_DEPLOY_DIR_PATH}"
 
 echo">>make log directory"
-if [ -d ${PRJT_LOG_DIR_PATH} ]; then
+if [ -d "${PRJT_LOG_DIR_PATH}" ]; then
   echo "project log directory is already exist"
 else
   echo "log_path : ${PRJT_LOG_DIR_PATH}"
   sudo mkdir "${PRJT_LOG_DIR_PATH}"
+fi
+if [ -d "${PRJT_LOG_DIR_PATH}/${PROJECT_NAME}" ]; then
+  sudo "directory is already exist"
+else
+  sudo mkdir "${PRJT_LOG_DIR_PATH}/${PROJECT_NAME}"
 fi
