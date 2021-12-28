@@ -5,7 +5,6 @@ PORT_NUM=$2
 
 DEPLOY_DIR_PATH=/home/ubuntu/deploy
 LOG_DIR_PATH=/home/ubuntu/logs
-PRJT_LOG_DIR_PATH=${LOG_DIR_PATH}/${PROJECT_NAME}_${PORT_NUM}
 CURRENT_DEPLOY_DIR_PATH=${DEPLOY_DIR_PATH}/${PROJECT_NAME}/current
 
 TODAY=$(date "+%Y%m%d%H%M%S")
@@ -27,7 +26,6 @@ fi
 echo ">> move jar file"
 sudo mv ./build/libs/*.jar "${DEPLOY_DIR_PATH}/${PROJECT_NAME}/${CHANGED_JAR_FILE_NAME}/${CHANGED_JAR_FILE_NAME}.jar"
 
-
 echo ">>make symbolic link"
 echo "target-path : ${DEPLOY_DIR_PATH}/${PROJECT_NAME}/${CHANGED_JAR_FILE_NAME}"
 echo "link-path : ${CURRENT_DEPLOY_DIR_PATH}"
@@ -36,16 +34,3 @@ if [ -d "${CURRENT_DEPLOY_DIR_PATH}" ]; then
   sudo rm -f ${CURRENT_DEPLOY_DIR_PATH}
 fi
 sudo ln -s ${DEPLOY_DIR_PATH}/"${PROJECT_NAME}"/"${CHANGED_JAR_FILE_NAME}" "${CURRENT_DEPLOY_DIR_PATH}"
-
-echo ">>make log directory"
-if [ -d "${PRJT_LOG_DIR_PATH}" ]; then
-  echo "project log directory is already exist"
-else
-  echo "log_path : ${PRJT_LOG_DIR_PATH}"
-  sudo mkdir "${PRJT_LOG_DIR_PATH}"
-fi
-if [ -d "${PRJT_LOG_DIR_PATH}/${PROJECT_NAME}" ]; then
-  echo "directory is already exist"
-else
-  sudo mkdir "${PRJT_LOG_DIR_PATH}/${PROJECT_NAME}"
-fi
