@@ -12,7 +12,7 @@ start() {
   JAR_FILE=$(basename "${CURRENT_DEPLOY_DIR_PATH}"/*.jar)
   echo ">> jar-file-name : $JAR_FILE"
 #  sudo chmod 755 "${CURRENT_DEPLOY_DIR_PATH}/${JAR_FILE}"
-  nohup java -jar -Dspring.profiles.active="$EN V" -Dsever.port="$PORT_NUM" \
+  nohup java -jar -Dspring.profiles.active="$ENV" -Dsever.port="$PORT_NUM" \
           "${CURRENT_DEPLOY_DIR_PATH}/${JAR_FILE}" &
 }
 
