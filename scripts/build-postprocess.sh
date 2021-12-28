@@ -15,12 +15,12 @@ CHANGED_JAR_FILE_NAME=${JAR_FILE_NAME}-${TODAY}
 
 echo ">> make project directory"
 if [ ! -d ${DEPLOY_DIR_PATH}/${PROJECT_NAME} ]; then
-  sudo mkdir ${DEPLOY_DIR_PATH}/${PROJECT_NAME}
+  mkdir ${DEPLOY_DIR_PATH}/${PROJECT_NAME}
 fi
 
 echo ">> make jar directory"
 if [ ! -d ${DEPLOY_DIR_PATH}/${PROJECT_NAME}/${CHANGED_JAR_FILE_NAME} ]; then
-  sudo mkdir ${DEPLOY_DIR_PATH}/${PROJECT_NAME}/${CHANGED_JAR_FILE_NAME}
+  mkdir ${DEPLOY_DIR_PATH}/${PROJECT_NAME}/${CHANGED_JAR_FILE_NAME}
 fi
 
 echo ">> move jar file"
