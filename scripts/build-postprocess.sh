@@ -45,7 +45,7 @@ else
   sudo mkdir "${PRJT_LOG_DIR_PATH}"
 fi
 if [ -d "${PRJT_LOG_DIR_PATH}/${PROJECT_NAME}" ]; then
-  sudo "directory is already exist"
+  echo "directory is already exist"
 else
   sudo mkdir "${PRJT_LOG_DIR_PATH}/${PROJECT_NAME}"
 fi
