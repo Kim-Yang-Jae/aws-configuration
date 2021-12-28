@@ -8,6 +8,7 @@ DEPLOY_DIR_PATH=/home/ubuntu/deploy
 CURRENT_DEPLOY_DIR_PATH=${DEPLOY_DIR_PATH}/${PRJT_NAME}/current
 
 start() {
+  echo $(whoami)
   echo ">> start method"
   JAR_FILE=$(basename ${CURRENT_DEPLOY_DIR_PATH}/*.jar)
   echo ">> jar-file-name : $JAR_FILE"
